@@ -10,7 +10,7 @@ namespace UI2 {
 
 	public ref class frmAuthorization : public System::Windows::Forms::Form
 	{
-		#pragma region Kernel
+#pragma region Kernel
 		public:		frmAuthorization(void) { InitializeComponent(); }
 		protected: ~frmAuthorization()	   { if (components) delete components; }
 
@@ -29,21 +29,18 @@ namespace UI2 {
 	private: System::Windows::Forms::LinkLabel^ llblLogin;
 	private: System::Windows::Forms::Label^ label1;
 	private: CLUI::cluiTextBox^ cluiTextBox4;
+	private: System::Windows::Forms::Button^ btnSend;
+	private: System::Windows::Forms::Label^ lblTime;
 
+	private: System::Windows::Forms::Timer^ tmrTime;
+	private: System::ComponentModel::IContainer^ components;
 
+#pragma endregion
 
-
-
-
-
-
-	protected:
-	private:	System::ComponentModel::Container^ components;
-		#pragma region Kernel
-
-		#pragma region Windows Form Designer generated code
-		void InitializeComponent(void)
+#pragma region Windows Form Designer generated code
+		private: void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmAuthorization::typeid));
 			this->lblName = (gcnew System::Windows::Forms::Label());
 			this->lblHead = (gcnew System::Windows::Forms::Label());
@@ -58,6 +55,9 @@ namespace UI2 {
 			this->llblLogin = (gcnew System::Windows::Forms::LinkLabel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->cluiTextBox4 = (gcnew CLUI::cluiTextBox());
+			this->btnSend = (gcnew System::Windows::Forms::Button());
+			this->lblTime = (gcnew System::Windows::Forms::Label());
+			this->tmrTime = (gcnew System::Windows::Forms::Timer(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ptrChewack))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ptrCheewackBig))->BeginInit();
 			this->SuspendLayout();
@@ -127,7 +127,7 @@ namespace UI2 {
 			this->textBox1->Location = System::Drawing::Point(0, 643);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(377, 82);
+			this->textBox1->Size = System::Drawing::Size(158, 82);
 			this->textBox1->TabIndex = 6;
 			// 
 			// cluiTextBox2
@@ -262,12 +262,52 @@ namespace UI2 {
 			this->cluiTextBox4->Size = System::Drawing::Size(320, 36);
 			this->cluiTextBox4->TabIndex = 15;
 			// 
+			// btnSend
+			// 
+			this->btnSend->BackColor = System::Drawing::Color::Transparent;
+			this->btnSend->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnSend.BackgroundImage")));
+			this->btnSend->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnSend->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)),
+				static_cast<System::Int32>(static_cast<System::Byte>(47)), static_cast<System::Int32>(static_cast<System::Byte>(76)));
+			this->btnSend->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)),
+				static_cast<System::Int32>(static_cast<System::Byte>(47)), static_cast<System::Int32>(static_cast<System::Byte>(76)));
+			this->btnSend->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnSend->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(47)),
+				static_cast<System::Int32>(static_cast<System::Byte>(76)));
+			this->btnSend->Location = System::Drawing::Point(292, 643);
+			this->btnSend->Name = L"btnSend";
+			this->btnSend->Size = System::Drawing::Size(62, 62);
+			this->btnSend->TabIndex = 16;
+			this->btnSend->UseVisualStyleBackColor = false;
+			this->btnSend->Click += gcnew System::EventHandler(this, &frmAuthorization::btnSend_Click);
+			this->btnSend->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &frmAuthorization::btnSend_Paint);
+			// 
+			// lblTime
+			// 
+			this->lblTime->AutoSize = true;
+			this->lblTime->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 9.749999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->lblTime->Location = System::Drawing::Point(16, 9);
+			this->lblTime->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblTime->Name = L"lblTime";
+			this->lblTime->Size = System::Drawing::Size(31, 16);
+			this->lblTime->TabIndex = 17;
+			this->lblTime->Text = L"9:41";
+			// 
+			// tmrTime
+			// 
+			this->tmrTime->Enabled = true;
+			this->tmrTime->Interval = 10;
+			this->tmrTime->Tick += gcnew System::EventHandler(this, &frmAuthorization::tmrTime_Tick);
+			// 
 			// frmAuthorization
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(47)),
 				static_cast<System::Int32>(static_cast<System::Byte>(76)));
 			this->ClientSize = System::Drawing::Size(376, 812);
+			this->Controls->Add(this->lblTime);
+			this->Controls->Add(this->btnSend);
 			this->Controls->Add(this->cluiTextBox4);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->llblLogin);
@@ -298,9 +338,9 @@ namespace UI2 {
 			this->PerformLayout();
 
 		}
-		#pragma endregion
+#pragma endregion
 
-		#pragma region Voids
+#pragma region Voids
 
 	private: 
 		System::Void frmAuthorization_Load(System::Object^ sender, System::EventArgs^ e) {
@@ -319,13 +359,50 @@ namespace UI2 {
 			this->Region = gcnew Drawing::Region(path);
 		}
 
+
+
+
+
+		System::Void btnSend_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+			System::Drawing::Drawing2D::GraphicsPath^ path = gcnew System::Drawing::Drawing2D::GraphicsPath();
+			path->FillMode = System::Drawing::Drawing2D::FillMode::Alternate;
+			int r = 60; int w = this->Width; int h = this->Height;
+
+			path->StartFigure();
+			path->AddArc(0, 0, r, r, 180, 90);  path->AddArc(w - r, 0, r, r, 270, 90);
+			path->AddArc(w - r, h - r, r, r, 0, 90);	path->AddArc(0, h - r, r, r, 90, 90);
+			path->CloseFigure();
+
+			this->Region = gcnew Drawing::Region(path);
+		}
+		System::Void btnSend_Click(System::Object^ sender, System::EventArgs^ e) {
+			//std::cout << "\tGAVKA!!!\n";
+			btnSend->Refresh();
+		}
+
 		System::Void btnBack_Click(System::Object^ sender, System::EventArgs^ e) {
 			Close();
 		}
 
-		#pragma endregion
 
-	
+
+
+		System::Void tmrTime_Tick(System::Object^ sender, System::EventArgs^ e) {
+			//SetThreadExecutionState(ES_DISPLAY_REQUIRED);	// The display doesn't go sleep
+
+			/*SYSTEMTIME systime;
+			GetSystemTime(&systime);
+			unsigned int H = (systime.wHour + 3), M = (systime.wMinute), S = (systime.wSecond);
+			String^ time = "";
+			if (H < 10) time += "0" + H.ToString(); else time += H.ToString(); time += ":";
+			if (M < 10) time += "0" + M.ToString(); else time += M.ToString(); time += ":";
+			if (S < 10) time += "0" + S.ToString(); else time += S.ToString();
+			lblTime->Text = time;*/
+		}
+
+
+#pragma endregion
+
 	
 
 	};

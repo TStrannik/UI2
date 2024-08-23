@@ -295,7 +295,7 @@ namespace CLUI {
 			while (stepDir[c] != '\\') { stepDir = stepDir->Remove(c); c--; }
 			stepDir = stepDir->Remove(c);
 			System::IO::Directory::SetCurrentDirectory(stepDir);
-			String^ dir = stepDir + "\\ClassLibraryUI\\Sources\\UI\\";
+			String^ dir = stepDir + "\\CLUI\\Sources\\UI\\";
 			return dir;
 		}
 
