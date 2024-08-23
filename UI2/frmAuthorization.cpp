@@ -21,7 +21,7 @@ void APPLICATION_START() {
 void APPLICATION_FORM() {
 	Application::SetCompatibleTextRenderingDefault(false);
 	Application::EnableVisualStyles();
-	UI1::frmMain form;
+	UI2::frmAuthorization form;
 	Application::Run(% form);
 }
 void APPLICATION_END() {
