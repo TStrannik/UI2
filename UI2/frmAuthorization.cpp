@@ -44,8 +44,12 @@ int main(array<String^>^ args) {
 // (+) MVP
 // (+) GIT Connection
 // (+) GIT Make "Develop" branch
-// ( ) Color schemes
+// -------------------
+// ( ) Task
+// -------------------
+// ( ) Task
+// ( ) Task
+//
 // 
-// -------------------
-// ( ) 
-// -------------------
+// BUGS:
+// ( ) Passwordbox: PHolder don't jump-right
