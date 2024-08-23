@@ -42,7 +42,8 @@ int main(array<String^>^ args) {
 // TODO:
 // 
 // (+) MVP
-// (+) Connect to GIT
+// (+) GIT Connection
+// (+) GIT Make "Develop" branch
 // ( ) Color schemes
 // 
 // -------------------
