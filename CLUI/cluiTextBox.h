@@ -79,11 +79,11 @@ namespace CLUI {
 			   // 
 			   this->txtBox->BackColor = System::Drawing::Color::White;
 			   this->txtBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			   this->txtBox->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->txtBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->txtBox->Location = System::Drawing::Point(73, 4);
 			   this->txtBox->Name = L"txtBox";
-			   this->txtBox->Size = System::Drawing::Size(20, 23);
+			   this->txtBox->Size = System::Drawing::Size(20, 22);
 			   this->txtBox->TabIndex = 0;
 			   this->txtBox->TextChanged += gcnew System::EventHandler(this, &cluiTextBox::txtBox_TextChanged);
 			   this->txtBox->GotFocus += gcnew System::EventHandler(this, &cluiTextBox::RemoveText);
@@ -94,13 +94,13 @@ namespace CLUI {
 			   this->lblPH->AutoSize = true;
 			   this->lblPH->BackColor = System::Drawing::Color::Transparent;
 			   this->lblPH->Cursor = System::Windows::Forms::Cursors::IBeam;
-			   this->lblPH->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->lblPH->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->lblPH->ForeColor = System::Drawing::Color::Gray;
 			   this->lblPH->Location = System::Drawing::Point(3, 4);
 			   this->lblPH->Margin = System::Windows::Forms::Padding(0, 0, 3, 0);
 			   this->lblPH->Name = L"lblPH";
-			   this->lblPH->Size = System::Drawing::Size(63, 23);
+			   this->lblPH->Size = System::Drawing::Size(67, 24);
 			   this->lblPH->TabIndex = 1;
 			   this->lblPH->Text = L"Holder";
 			   this->lblPH->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -113,7 +113,7 @@ namespace CLUI {
 			   this->btnEye->FlatAppearance->MouseDownBackColor = System::Drawing::Color::White;
 			   this->btnEye->FlatAppearance->MouseOverBackColor = System::Drawing::Color::White;
 			   this->btnEye->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->btnEye->Location = System::Drawing::Point(139, 5);
+			   this->btnEye->Location = System::Drawing::Point(125, 7);
 			   this->btnEye->Name = L"btnEye";
 			   this->btnEye->Size = System::Drawing::Size(30, 20);
 			   this->btnEye->TabIndex = 2;
@@ -126,14 +126,16 @@ namespace CLUI {
 			   // mtbBox
 			   // 
 			   this->mtbBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			   this->mtbBox->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->mtbBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->mtbBox->Location = System::Drawing::Point(99, 5);
 			   this->mtbBox->Name = L"mtbBox";
 			   this->mtbBox->PasswordChar = '*';
-			   this->mtbBox->Size = System::Drawing::Size(20, 23);
+			   this->mtbBox->Size = System::Drawing::Size(20, 22);
 			   this->mtbBox->TabIndex = 0;
 			   this->mtbBox->TextChanged += gcnew System::EventHandler(this, &cluiTextBox::mtbBox_TextChanged);
+			   this->mtbBox->GotFocus += gcnew System::EventHandler(this, &cluiTextBox::RemoveText);
+			   this->mtbBox->LostFocus += gcnew System::EventHandler(this, &cluiTextBox::AddText);
 			   // 
 			   // cluiTextBox
 			   // 
@@ -141,7 +143,7 @@ namespace CLUI {
 			   this->Controls->Add(this->btnEye);
 			   this->Controls->Add(this->txtBox);
 			   this->Controls->Add(this->mtbBox);
-			   this->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->Name = L"cluiTextBox";
 			   this->Size = System::Drawing::Size(320, 36);
@@ -268,26 +270,23 @@ namespace CLUI {
 			RemoveText(sender, e);
 		}
 		System::Void lblPH_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-			txtBox->Focus(); mtbBox->Focus();
+			!PasswordBox ? txtBox->Focus() : mtbBox->Focus();
 		}
 
 	public:
 		void RemoveText(System::Object^ sender, System::EventArgs^ e)
 		{
-			if (!PasswordBox) lblPH->Visible = txtBox->Text->Length == 0;
-			else			  lblPH->Visible = mtbBox->Text->Length == 0;
+			!PasswordBox ? lblPH->Visible = txtBox->Text->Length == 0
+			:			   lblPH->Visible = mtbBox->Text->Length == 0;
 
-			if (!PasswordBox) lblPH->Left = txtBox->Left + 1;
-			else			  lblPH->Left = mtbBox->Left + 1;
+			lblPH->Left = txtBox->Left + 1;
 		}
-
 		void AddText(System::Object^ sender, System::EventArgs^ e)
 		{
 			if (!PasswordBox) lblPH->Visible = String::IsNullOrWhiteSpace(txtBox->Text);
 			else			  lblPH->Visible = String::IsNullOrWhiteSpace(mtbBox->Text);
 
-			if (!PasswordBox) lblPH->Left = txtBox->Left + 1 - 4;
-			else			  lblPH->Left = mtbBox->Left + 1 - 4;
+			lblPH->Left = txtBox->Left + 1 - 4;
 		}
 		String^ getUIDir() {
 			String^ stepDir = CurrentDir;
@@ -300,9 +299,6 @@ namespace CLUI {
 		}
 
 #pragma endregion Voids
-
-
-
 
 	};
 }

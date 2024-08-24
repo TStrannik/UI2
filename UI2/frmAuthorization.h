@@ -1,3 +1,5 @@
+#include <Windows.h>
+
 #pragma once
 
 namespace UI2 {
@@ -7,6 +9,7 @@ namespace UI2 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+
 
 	public ref class frmAuthorization : public System::Windows::Forms::Form
 	{
@@ -33,6 +36,7 @@ namespace UI2 {
 	private: System::Windows::Forms::Label^ lblTime;
 
 	private: System::Windows::Forms::Timer^ tmrTime;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::ComponentModel::IContainer^ components;
 
 #pragma endregion
@@ -58,31 +62,33 @@ namespace UI2 {
 			this->btnSend = (gcnew System::Windows::Forms::Button());
 			this->lblTime = (gcnew System::Windows::Forms::Label());
 			this->tmrTime = (gcnew System::Windows::Forms::Timer(this->components));
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ptrChewack))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ptrCheewackBig))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// lblName
 			// 
 			this->lblName->AutoSize = true;
-			this->lblName->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 9.749999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.749999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->lblName->Location = System::Drawing::Point(30, 370);
 			this->lblName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblName->Name = L"lblName";
-			this->lblName->Size = System::Drawing::Size(40, 16);
+			this->lblName->Size = System::Drawing::Size(44, 16);
 			this->lblName->TabIndex = 1;
 			this->lblName->Text = L"Name";
 			// 
 			// lblHead
 			// 
 			this->lblHead->AutoSize = true;
-			this->lblHead->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lblHead->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lblHead->Location = System::Drawing::Point(143, 56);
 			this->lblHead->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblHead->Name = L"lblHead";
-			this->lblHead->Size = System::Drawing::Size(76, 23);
+			this->lblHead->Size = System::Drawing::Size(84, 24);
 			this->lblHead->TabIndex = 2;
 			this->lblHead->Text = L"Sign Up";
 			// 
@@ -140,12 +146,13 @@ namespace UI2 {
 			this->cluiTextBox2->ColorEnterText = System::Drawing::Color::White;
 			this->cluiTextBox2->ColorLeaveBack = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)),
 				static_cast<System::Int32>(static_cast<System::Byte>(47)), static_cast<System::Int32>(static_cast<System::Byte>(76)));
-			this->cluiTextBox2->ColorLeaveBord = System::Drawing::Color::Gray;
+			this->cluiTextBox2->ColorLeaveBord = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(77)),
+				static_cast<System::Int32>(static_cast<System::Byte>(99)), static_cast<System::Int32>(static_cast<System::Byte>(116)));
 			this->cluiTextBox2->ColorLeaveText = System::Drawing::Color::White;
 			this->cluiTextBox2->ColorWrongBack = System::Drawing::Color::LightCoral;
 			this->cluiTextBox2->ColorWrongBord = System::Drawing::Color::Red;
 			this->cluiTextBox2->ColorWrongText = System::Drawing::Color::Black;
-			this->cluiTextBox2->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->cluiTextBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->cluiTextBox2->ForeColor = System::Drawing::Color::White;
 			this->cluiTextBox2->Location = System::Drawing::Point(33, 402);
@@ -160,12 +167,12 @@ namespace UI2 {
 			// lblEmail
 			// 
 			this->lblEmail->AutoSize = true;
-			this->lblEmail->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 9.749999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblEmail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.749999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->lblEmail->Location = System::Drawing::Point(30, 464);
 			this->lblEmail->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblEmail->Name = L"lblEmail";
-			this->lblEmail->Size = System::Drawing::Size(36, 16);
+			this->lblEmail->Size = System::Drawing::Size(41, 16);
 			this->lblEmail->TabIndex = 7;
 			this->lblEmail->Text = L"Email";
 			// 
@@ -179,12 +186,13 @@ namespace UI2 {
 			this->cluiTextBox3->ColorEnterText = System::Drawing::Color::White;
 			this->cluiTextBox3->ColorLeaveBack = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)),
 				static_cast<System::Int32>(static_cast<System::Byte>(47)), static_cast<System::Int32>(static_cast<System::Byte>(76)));
-			this->cluiTextBox3->ColorLeaveBord = System::Drawing::Color::Gray;
+			this->cluiTextBox3->ColorLeaveBord = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(77)),
+				static_cast<System::Int32>(static_cast<System::Byte>(99)), static_cast<System::Int32>(static_cast<System::Byte>(116)));
 			this->cluiTextBox3->ColorLeaveText = System::Drawing::Color::White;
 			this->cluiTextBox3->ColorWrongBack = System::Drawing::Color::LightCoral;
 			this->cluiTextBox3->ColorWrongBord = System::Drawing::Color::Red;
 			this->cluiTextBox3->ColorWrongText = System::Drawing::Color::Black;
-			this->cluiTextBox3->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->cluiTextBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->cluiTextBox3->ForeColor = System::Drawing::Color::White;
 			this->cluiTextBox3->Location = System::Drawing::Point(33, 495);
@@ -199,26 +207,26 @@ namespace UI2 {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(73, 741);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(180, 19);
+			this->label2->Size = System::Drawing::Size(192, 20);
 			this->label2->TabIndex = 11;
 			this->label2->Text = L"Already have an account\?";
 			// 
 			// llblLogin
 			// 
 			this->llblLogin->AutoSize = true;
-			this->llblLogin->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->llblLogin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->llblLogin->LinkBehavior = System::Windows::Forms::LinkBehavior::NeverUnderline;
 			this->llblLogin->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(58)), static_cast<System::Int32>(static_cast<System::Byte>(210)),
 				static_cast<System::Int32>(static_cast<System::Byte>(118)));
 			this->llblLogin->Location = System::Drawing::Point(249, 741);
 			this->llblLogin->Name = L"llblLogin";
-			this->llblLogin->Size = System::Drawing::Size(48, 19);
+			this->llblLogin->Size = System::Drawing::Size(48, 20);
 			this->llblLogin->TabIndex = 12;
 			this->llblLogin->TabStop = true;
 			this->llblLogin->Text = L"Login";
@@ -226,12 +234,12 @@ namespace UI2 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 9.749999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.749999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label1->Location = System::Drawing::Point(30, 559);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(58, 16);
+			this->label1->Size = System::Drawing::Size(67, 16);
 			this->label1->TabIndex = 13;
 			this->label1->Text = L"Password";
 			// 
@@ -245,12 +253,13 @@ namespace UI2 {
 			this->cluiTextBox4->ColorEnterText = System::Drawing::Color::White;
 			this->cluiTextBox4->ColorLeaveBack = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)),
 				static_cast<System::Int32>(static_cast<System::Byte>(47)), static_cast<System::Int32>(static_cast<System::Byte>(76)));
-			this->cluiTextBox4->ColorLeaveBord = System::Drawing::Color::Gray;
+			this->cluiTextBox4->ColorLeaveBord = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(77)),
+				static_cast<System::Int32>(static_cast<System::Byte>(99)), static_cast<System::Int32>(static_cast<System::Byte>(116)));
 			this->cluiTextBox4->ColorLeaveText = System::Drawing::Color::White;
 			this->cluiTextBox4->ColorWrongBack = System::Drawing::Color::LightCoral;
 			this->cluiTextBox4->ColorWrongBord = System::Drawing::Color::Red;
 			this->cluiTextBox4->ColorWrongText = System::Drawing::Color::Black;
-			this->cluiTextBox4->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->cluiTextBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->cluiTextBox4->ForeColor = System::Drawing::Color::White;
 			this->cluiTextBox4->Location = System::Drawing::Point(33, 587);
@@ -285,7 +294,7 @@ namespace UI2 {
 			// lblTime
 			// 
 			this->lblTime->AutoSize = true;
-			this->lblTime->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 9.749999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblTime->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.749999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->lblTime->Location = System::Drawing::Point(16, 9);
 			this->lblTime->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
@@ -300,12 +309,23 @@ namespace UI2 {
 			this->tmrTime->Interval = 10;
 			this->tmrTime->Tick += gcnew System::EventHandler(this, &frmAuthorization::tmrTime_Tick);
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(258, 662);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(30, 30);
+			this->pictureBox1->TabIndex = 18;
+			this->pictureBox1->TabStop = false;
+			// 
 			// frmAuthorization
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(47)),
 				static_cast<System::Int32>(static_cast<System::Byte>(76)));
 			this->ClientSize = System::Drawing::Size(376, 812);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->lblTime);
 			this->Controls->Add(this->btnSend);
 			this->Controls->Add(this->cluiTextBox4);
@@ -321,7 +341,7 @@ namespace UI2 {
 			this->Controls->Add(this->ptrChewack);
 			this->Controls->Add(this->lblHead);
 			this->Controls->Add(this->lblName);
-			this->Font = (gcnew System::Drawing::Font(L"Myriad Pro", 9.749999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.749999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(242)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
@@ -334,6 +354,7 @@ namespace UI2 {
 			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &frmAuthorization::frmAuthorization_Paint);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ptrChewack))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ptrCheewackBig))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -364,16 +385,7 @@ namespace UI2 {
 
 
 		System::Void btnSend_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-			System::Drawing::Drawing2D::GraphicsPath^ path = gcnew System::Drawing::Drawing2D::GraphicsPath();
-			path->FillMode = System::Drawing::Drawing2D::FillMode::Alternate;
-			int r = 60; int w = this->Width; int h = this->Height;
-
-			path->StartFigure();
-			path->AddArc(0, 0, r, r, 180, 90);  path->AddArc(w - r, 0, r, r, 270, 90);
-			path->AddArc(w - r, h - r, r, r, 0, 90);	path->AddArc(0, h - r, r, r, 90, 90);
-			path->CloseFigure();
-
-			this->Region = gcnew Drawing::Region(path);
+			//
 		}
 		System::Void btnSend_Click(System::Object^ sender, System::EventArgs^ e) {
 			//std::cout << "\tGAVKA!!!\n";
@@ -390,14 +402,15 @@ namespace UI2 {
 		System::Void tmrTime_Tick(System::Object^ sender, System::EventArgs^ e) {
 			//SetThreadExecutionState(ES_DISPLAY_REQUIRED);	// The display doesn't go sleep
 
-			/*SYSTEMTIME systime;
+			SYSTEMTIME systime;
 			GetSystemTime(&systime);
 			unsigned int H = (systime.wHour + 3), M = (systime.wMinute), S = (systime.wSecond);
 			String^ time = "";
-			if (H < 10) time += "0" + H.ToString(); else time += H.ToString(); time += ":";
-			if (M < 10) time += "0" + M.ToString(); else time += M.ToString(); time += ":";
-			if (S < 10) time += "0" + S.ToString(); else time += S.ToString();
-			lblTime->Text = time;*/
+
+			time += H.ToString() + ":";
+			time += M < 10 ? "0" + M.ToString() : M.ToString();
+
+			lblTime->Text = time;
 		}
 
 

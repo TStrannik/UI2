@@ -2,7 +2,7 @@
 
 #include <Windows.h>
 #include <iostream>
-
+#include <stdio.h>
 
 using namespace System;
 using namespace System::Windows::Forms;
