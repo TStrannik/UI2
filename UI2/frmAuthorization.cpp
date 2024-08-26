@@ -30,7 +30,7 @@ void APPLICATION_END() {
 	//system("pause");
 }
 
-/// ver 0.1.0
+/// ver 0.2.0
 int main(array<String^>^ args) {
 	APPLICATION_START();
 	APPLICATION_FORM();
@@ -45,12 +45,13 @@ int main(array<String^>^ args) {
 // (+) MVP
 // (+) GIT Connection
 // (+) GIT Make "Develop" branch
-// -------------------
-// ( ) Task
-// -------------------
-// ( ) Task
-// ( ) Task
 //
+// ( ) 
+// (+) 
+// -------------------
+// (+) Passwordbox: Rounds 
+// -------------------
 // 
 // BUGS:
-// ( ) Passwordbox: PHolder don't jump-right
+// (+) Passwordbox: PHolder don't jump-right
+// ( ) btnBack: correct size

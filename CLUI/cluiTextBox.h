@@ -133,6 +133,7 @@ namespace CLUI {
 			   this->mtbBox->PasswordChar = '*';
 			   this->mtbBox->Size = System::Drawing::Size(20, 22);
 			   this->mtbBox->TabIndex = 0;
+			   this->mtbBox->UseSystemPasswordChar = true;
 			   this->mtbBox->TextChanged += gcnew System::EventHandler(this, &cluiTextBox::mtbBox_TextChanged);
 			   this->mtbBox->GotFocus += gcnew System::EventHandler(this, &cluiTextBox::RemoveText);
 			   this->mtbBox->LostFocus += gcnew System::EventHandler(this, &cluiTextBox::AddText);
@@ -235,6 +236,7 @@ namespace CLUI {
 
 		System::Void btnEye_Click(System::Object^ sender, System::EventArgs^ e) {
 			ShowPassword ? mtbBox->PasswordChar = PasswordChar : mtbBox->PasswordChar = NULL;
+			mtbBox->UseSystemPasswordChar = ShowPassword;
 			ShowPassword = !ShowPassword;
 
 			PasswordBox ? mtbBox->Focus() : txtBox->Focus();
