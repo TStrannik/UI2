@@ -2,6 +2,7 @@
 
 #include <Windows.h>
 #include <iostream>
+#include <stdio.h>
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -29,7 +30,7 @@ void APPLICATION_END() {
 	//system("pause");
 }
 
-/// ver 0.1.0
+/// ver 0.2.0
 int main(array<String^>^ args) {
 	APPLICATION_START();
 	APPLICATION_FORM();
@@ -42,9 +43,15 @@ int main(array<String^>^ args) {
 // TODO:
 // 
 // (+) MVP
-// (+) Connect to GIT
-// ( ) Color schemes
-// 
-// -------------------
+// (+) GIT Connection
+// (+) GIT Make "Develop" branch
+//
 // ( ) 
+// (+) 
 // -------------------
+// (+) Passwordbox: Rounds 
+// -------------------
+// 
+// BUGS:
+// (+) Passwordbox: PHolder don't jump-right
+// ( ) btnBack: correct size
